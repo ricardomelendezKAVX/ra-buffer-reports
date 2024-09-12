@@ -1,0 +1,11 @@
+  li {
+    cursor: pointer;
+  }
+
+  .optionTitleText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #FFF;
+  }

@@ -1,42 +1,14 @@
 import styled from "styled-components";
-import { Flex, Stack, Group, Anchor, Image } from '@mantine/core';
-import classes from './lateralBar.module.css';
-
-const GroupingDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    padding: 1rem;
-    background-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1));
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-`;
-
-const MainScreenImage = styled.img`
-    padding: 0.25rem;
-    background-color: var(--bs-body-bg);
-    border: var(--bs-border-width) solid var(--bs-border-color);
-    border-radius: var(--bs-border-radius);
-    max-width: 100%;
-    height: auto;
-    width: 70px;
-`;
+import { Flex, Stack, Group, Anchor, Image, Space, Container } from '@mantine/core';
+import classes from './LateralBar.module.css';
+import OptionButton from "./OptionButton";
 
 const MainPageTitle = styled.span`
     text-align: center;
-    color: tomato;
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
     font-size: 16px;
     text-transform: uppercase;
-`;
-
-const CustomAnchor = styled.a`
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-    align-items: center;
 `;
 
 const HorizontalSeparators = styled.hr`
@@ -61,64 +33,55 @@ const CustomUnorderedList = styled.ul`
     --bs-nav-link-disabled-color: var(--bs-secondary-color);
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin-bottom: auto;
+    padding-top: 1rem;
     gap: 4em;
 `;
 
 const VerticalDivider = styled.div`
-    width: 100%;
-    height: 3rem;
     background-color: rgba(0, 0, 0, .1);
     border: solid rgba(0, 0, 0, .15);
     border-width: 1px 0;
     box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
     flex-shrink: 0;
     width: 1.5rem;
-    height: 100vh;    
+    height: 100vh;
 `;
 
 const CustomMain = styled.main`
+    height: 100vh;
+    padding: 1rem;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+`;
+
+const CustomContainer = styled.div`
     display: flex;
-    flex-direction: column;BBB
 `;
 
 export default function LateralBar(){
     return (
-      <CustomMain>
-        <Group>
-            <Stack align="flex-start">
-                <Anchor href="/">
+      <CustomContainer>
+        <Flex className={classes.lateralBar} direction="column">
+            <Anchor href="/">
                 <Flex align="center" justify="center">
                     <Image
                     src="././src/assets/AVX Kyocera Logo.png"
-                    w="5rem"
+                    w="6rem"
                     fit="contain"
-                    radius="md"
+                    radius="sm"
                     />
-                    <MainPageTitle className={classes.maiPageTitleText}>Reportes Buffer RA</MainPageTitle>
+                    <Space w="xs"></Space>
+                    <MainPageTitle className={classes.mainPageTitleText}>Reportes Buffer RA</MainPageTitle>
                 </Flex>
-                </Anchor>
-                <HorizontalSeparators></HorizontalSeparators>
+            </Anchor>
+            <HorizontalSeparators></HorizontalSeparators>
 
-                <Stack justify="center" gap="xl">
+            <Stack>
                 <CustomUnorderedList>
+                    <OptionButton iconName="shelves" optionName="BUFFER" idName="buttonOneBufferRA"></OptionButton>    
                     <li>
-                    <Group justify="center" id="buttonOneBufferRA">
-                        <Flex
-                        align="center"
-                        justify="center"
-                        type="button"
-                        id="reportesBufferRa"
-                        gap="md"
-                        className={classes.optionTitleText}
-                        >
-                        <span className="material-icons">shelves</span>BUFFER
-                        </Flex>
-                    </Group>
-                    </li>
-                    <li>
-                    <Group justify="center" id="buttonTwoFactoryMes">
+                    <Group justify="flex-start" id="buttonTwoFactoryMes">
                         <Flex
                         align="center"
                         justify="center"
@@ -132,7 +95,7 @@ export default function LateralBar(){
                     </Group>
                     </li>
                     <li>
-                    <Group justify="center" id="buttonThreeCapme">
+                    <Group justify="flex-start" id="buttonThreeCapme">
                         <Flex
                         align="center"
                         justify="center"
@@ -146,7 +109,7 @@ export default function LateralBar(){
                     </Group>
                     </li>
                     <li>
-                    <Group justify="center" id="buttonFourMisc">
+                    <Group justify="flex-start" id="buttonFourMisc">
                         <Flex
                         align="center"
                         justify="center"
@@ -160,11 +123,18 @@ export default function LateralBar(){
                     </Group>
                     </li>
                 </CustomUnorderedList>
-                </Stack>
             </Stack>
-            <VerticalDivider></VerticalDivider>
-        </Group>
-        {/* <GroupingDiv>
+        </Flex>
+        <VerticalDivider></VerticalDivider>
+      </CustomContainer>
+    );
+}
+
+
+
+
+
+{/* <GroupingDiv>
                 <Flex align="center" justify="center">
                     <Anchor href="/">
                         <Image src="././src/assets/AVX Kyocera Logo.png" w="5rem" fit="contain" radius="md"/>
@@ -196,7 +166,4 @@ export default function LateralBar(){
                 </CustomUnorderedList>
             </GroupingDiv>
 
-            <VerticalDivider></VerticalDivider> */}
-      </CustomMain>
-    );
-}
+            <VerticalDivider></VerticalDivider>  */}
