@@ -10,7 +10,7 @@
   --bs-border-width: 1px;
 }
 
-ul {
+  ul {
     list-style-type: none;
   }
   
@@ -20,6 +20,8 @@ ul {
   
   hr {
     color:darkgrey;
+    width: 100%;
+    opacity: 0.2;
   }
   
   li {
@@ -46,27 +48,10 @@ ul {
       color: #FFF;
   }
   
-  .optionTitleText {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    color: #FFF;
-  }
-  
   .normal-text {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 14px;
-    text-transform: uppercase;
-    text-wrap: wrap;
-  }
-  
-  .nav-bar-text {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 900;
-    font-size: 26px;
-    color: #FFF;
     text-transform: uppercase;
   }
   
@@ -84,13 +69,6 @@ ul {
     text-transform: uppercase;
   }
   
-  /* Aquí "container" significa lo que contenga al text, puede ser div, a, p, etc.*/
-  .center-text-to-container {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-  }
-  
   .lateralBar {
     height: 100vh;
     width: fit-content;
@@ -98,140 +76,9 @@ ul {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
   }
-  
-  .lateral-bar-container {
-    width: 18em;
-  }
-  
-  .custom-nav-bar {
-    background-color: #00A3E0;;
-  }
-  
-  /* Efecto de llenado para botones de barra lateral*/
-  
-  .option-btn:hover {
-    background-color: rgb(169, 169, 169, 0.25);
-    transform: scale(1.025);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
-  }
-  
-  .option-btn-selected {
-    background-color: rgb(169, 169, 169, 0.25);
-    transform: scale(1.025);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
-  }
-  
-  .sub-option-btn:hover {
-    background-color: rgb(169, 169, 169, 0.25);
-    transform: scale(1.025);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
-  }
-  
-  .sub-option-btn-selected {
-    background-color: rgb(169, 169, 169, 0.25);
-    transform: scale(1.025);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
-  }
-  
-  .page-main-body {
-    overflow-y: auto;
-  }
-  
-  .custom-img-thumbnail {
-    padding: 0.25rem;
-    background-color: #127b4a;
-    border: var(--bs-border-width) solid var(--bs-border-color);
-    border-radius: var(--bs-border-radius);
-    max-width: 1.8em;
-    height: 1.8em;
-  }
 
   .customGap {
     row-gap: 5rem;
-  }
-
-  /**************************************************/
-  
-  /* Animación para mostrar o esconder las opciones de los botones */
-  
-  /* Mostrar */
-  
-  @-webkit-keyframes slideInLeft {
-    from {
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-      visibility: visible;
-    }
-  
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  @keyframes slideInLeft {
-    from {
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-      visibility: visible;
-    }
-  
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  .slideInLeft {
-    -webkit-animation-name: slideInLeft;
-    animation-name: slideInLeft;
-  }
-  
-  .animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-  }
-  
-  /* Esconder */
-  
-  @-webkit-keyframes slideOutRight {
-    from {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  
-    to {
-      visibility: hidden;
-      -webkit-transform: translate3d(100%, 0, 0);
-      transform: translate3d(100%, 0, 0);
-    }
-  }
-  
-  @keyframes slideOutRight {
-    from {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  
-    to {
-      visibility: hidden;
-      -webkit-transform: translate3d(100%, 0, 0);
-      transform: translate3d(100%, 0, 0);
-    }
-  }
-  
-  .slideOutRight {
-    -webkit-animation-name: slideOutRight;
-    animation-name: slideOutRight;
-  }
-  
-  .animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
   }
   
   /*****************************************************************/

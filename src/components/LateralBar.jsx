@@ -1,7 +1,10 @@
+import { useState } from "react";
+
 import styled from "styled-components";
-import { Flex, Stack, Group, Anchor, Image, Space, Container } from '@mantine/core';
+import { Flex, Stack, Anchor, Image, Space } from '@mantine/core';
 import classes from './LateralBar.module.css';
 import OptionButton from "./OptionButton";
+import SubOptionButton from "./SubOptionButton";
 
 const MainPageTitle = styled.span`
     text-align: center;
@@ -19,9 +22,8 @@ const HorizontalSeparators = styled.hr`
 `;
 
 const CustomUnorderedList = styled.ul`
-    padding-left: 2rem;
+    padding-left: 0.5rem;
     margin-top: 0;
-    margin-bottom: 1rem;
     --bs-nav-pills-border-radius: var(--bs-border-radius);
     --bs-nav-pills-link-active-color: #fff;
     --bs-nav-pills-link-active-bg: #0d6efd;
@@ -33,9 +35,8 @@ const CustomUnorderedList = styled.ul`
     --bs-nav-link-disabled-color: var(--bs-secondary-color);
     display: flex;
     flex-direction: column;
-    margin-bottom: auto;
-    padding-top: 1rem;
-    gap: 4em;
+    padding-top: 0.5rem;
+    gap: 1.2em;
 `;
 
 const VerticalDivider = styled.div`
@@ -60,6 +61,12 @@ const CustomContainer = styled.div`
 `;
 
 export default function LateralBar(){
+    const [isVisible, setIsVisible] = useState(false);
+
+    function handleIsVisble(value) {
+        useState(!value);
+    }
+
     return (
       <CustomContainer>
         <Flex className={classes.lateralBar} direction="column">
@@ -79,49 +86,16 @@ export default function LateralBar(){
 
             <Stack>
                 <CustomUnorderedList>
-                    <OptionButton iconName="shelves" optionName="BUFFER" idName="buttonOneBufferRA"></OptionButton>    
-                    <li>
-                    <Group justify="flex-start" id="buttonTwoFactoryMes">
-                        <Flex
-                        align="center"
-                        justify="center"
-                        type="button"
-                        id="reportesFactoryMes"
-                        gap="md"
-                        className={classes.optionTitleText}
-                        >
-                        <span className="material-icons">factory</span>MES/Factory Works
-                        </Flex>
-                    </Group>
-                    </li>
-                    <li>
-                    <Group justify="flex-start" id="buttonThreeCapme">
-                        <Flex
-                        align="center"
-                        justify="center"
-                        type="button"
-                        id="reportesCapme"
-                        gap="md"
-                        className={classes.optionTitleText}
-                        >
-                        <span className="material-icons">storage</span>CAPME
-                        </Flex>
-                    </Group>
-                    </li>
-                    <li>
-                    <Group justify="flex-start" id="buttonFourMisc">
-                        <Flex
-                        align="center"
-                        justify="center"
-                        type="button"
-                        id="reportesMiscelaneos"
-                        gap="md"
-                        className={classes.optionTitleText}
-                        >
-                        <span className="material-icons">miscellaneous_services</span>MISCELÁNEOS
-                        </Flex>
-                    </Group>
-                    </li>
+                    <OptionButton onSelected={handleIsVisble} iconName="shelves" optionName="BUFFER" idName="buttonOneBufferRA"></OptionButton>
+                    <SubOptionButton subOptionName="Disponibilidad buffer" idName="disponibilidadBufferRa"></SubOptionButton>
+                    <SubOptionButton subOptionName="Compras buffer RA" idName="comprasBufferRa"></SubOptionButton>
+                    <SubOptionButton subOptionName="Histórico Compras" idName="historicoBuffer"></SubOptionButton>
+                    <hr></hr>
+                    <OptionButton iconName="factory" optionName="MES/Factory Works" idName="buttonTwoFactoryMes"></OptionButton>
+                    <hr></hr>
+                    <OptionButton iconName="storage" optionName="CAPME" idName="buttonThreeCapme"></OptionButton>
+                    <hr></hr>
+                    <OptionButton iconName="miscellaneous_services" optionName="MISCELÁNEOS" idName="buttonFourMisc"></OptionButton>
                 </CustomUnorderedList>
             </Stack>
         </Flex>
